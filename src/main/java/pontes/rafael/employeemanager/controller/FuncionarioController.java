@@ -35,4 +35,10 @@ public class FuncionarioController {
         return new ResponseEntity<>(funcionarioService.save(funcionario), HttpStatus.CREATED);
     }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        funcionarioService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }

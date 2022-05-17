@@ -29,5 +29,6 @@ public class FuncionarioService {
         return funcionarioRepository.save(funcionario);
     }
 
+    public void delete(long id) { funcionarioRepository.delete(findByIdOrThrowBadRequestException(id)); }
 
 }
