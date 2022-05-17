@@ -3,10 +3,7 @@ package pontes.rafael.employeemanager.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pontes.rafael.employeemanager.domain.Funcionario;
 import pontes.rafael.employeemanager.service.FuncionarioService;
 
@@ -26,6 +23,11 @@ public class FuncionarioController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Funcionario> findById(@PathVariable long id) {
         return new ResponseEntity<>(funcionarioService.findByIdOrThrowBadRequestException(id), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Funcionario> save(@RequestBody Funcionario funcionario) {
+        return new ResponseEntity<>(funcionarioService.save(funcionario), HttpStatus.CREATED);
     }
 
 }

@@ -20,4 +20,8 @@ public class FuncionarioService {
         return funcionarioRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Funcionário não encontrado."));
     }
+
+    public Funcionario save(Funcionario funcionario) {
+        return funcionarioRepository.save(funcionario);
+    }
 }
