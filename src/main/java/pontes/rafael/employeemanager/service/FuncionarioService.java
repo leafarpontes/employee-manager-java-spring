@@ -21,7 +21,13 @@ public class FuncionarioService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Funcionário não encontrado."));
     }
 
+    public List<Funcionario> findByCep(String cep) {
+        return funcionarioRepository.findByCep(cep);
+    }
+
     public Funcionario save(Funcionario funcionario) {
         return funcionarioRepository.save(funcionario);
     }
+
+
 }

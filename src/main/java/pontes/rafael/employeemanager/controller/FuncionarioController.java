@@ -25,6 +25,11 @@ public class FuncionarioController {
         return new ResponseEntity<>(funcionarioService.findByIdOrThrowBadRequestException(id), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/find-by-cep")
+    public ResponseEntity<List<Funcionario>> findByCep(@RequestParam String cep) {
+        return new ResponseEntity<>(funcionarioService.findByCep(cep), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Funcionario> save(@RequestBody Funcionario funcionario) {
         return new ResponseEntity<>(funcionarioService.save(funcionario), HttpStatus.CREATED);
